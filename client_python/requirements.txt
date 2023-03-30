@@ -1,0 +1,4 @@
+keras==2.10.0
+numpy==1.23.3
+pyzmq==25.0.1
+tensorflow==2.10.0
