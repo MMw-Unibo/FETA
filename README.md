@@ -15,6 +15,23 @@ Deploy a private [_one-click-tangle_](https://github.com/iotaledger/one-click-ta
     docker run -i --name="as" -v $(pwd)/src:/mnt --network="host" as-image
     docker run -i -v $(pwd)/src/clientN:/mnt --network="host" --name="clientN" -e PORT="555N" -e CLIENTS="Number of clients" client-image
     docker run -i -v $(pwd)/src/clientN:/mnt --network="host" --name="client-pythonN" -e PORT="555N" -e CLIENTS="Number of clients" client-python-image
+
+
+## Citation
+If you publish work that uses this code, please cite us as follows:
+
+    @article{MAZZOCCA202417,
+        title = {Enabling Federated Learning at the Edge through the IOTA Tangle},
+        journal = {Future Generation Computer Systems},
+        volume = {152},
+        pages = {17-29},
+        year = {2024},
+        issn = {0167-739X},
+        doi = {https://doi.org/10.1016/j.future.2023.10.014},
+        url = {https://www.sciencedirect.com/science/article/pii/S0167739X23003849},
+        author = {Carlo Mazzocca and Nicolò Romandini and Rebecca Montanari and Paolo Bellavista}
+    }
+
     
 
     
