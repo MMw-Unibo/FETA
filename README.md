@@ -10,9 +10,28 @@ Launch the following commands in the respective directories:
     docker build -t client-python-image .
 
 ## Deployment
-Deploy a private [_one-click-tangle_](https://github.com/iotaledger/one-click-tangle) instance and an [_IPFS cluster_](https://github.com/pccr10001/ipfs-multinode-cluster). After doing so, it is possible to launch the various containers of the components. From the respective directories:
+
+Deploy a private [_one-click-tangle_](https://github.com/iotaledger/one-click-tangle) instance and an [_IPFS cluster_](https://github.com/pccr10001/ipfs-multinode-cluster). This will result in the creation of Docker containers on the nodes where the deployment was executed. It is necessary to take note of the IPs and ports of the containers to reach them from outside.
+After doing so, it is possible to start the remaining components.
+
+Start the Authorization Service (AS) on a node.
+From the respective directory:
 
     docker run -i --name="as" -v $(pwd)/src:/mnt --network="host" as-image
+
+**Number of clients** refers to the total count of clients.</br>
+**N** represents the i-th client.
+
+Modify the code in each clientN (main.rs) to connect to the Tangle, IPFS, and AS.
+- In **lib::create_builder()** *[line 30]*, insert the IP and port of a Tangle node.
+- In **TcpStream::connect()** *[line 81]*, insert the IP and port of the Authorization Server.
+- In **IpfsClient::from_str()** *[line 191]*, insert the IP and port of a node in the IPFS cluster.
+  
+**Please note:**
+Although each component can be deployed on different nodes, it is necessary for clientN and the respective client-pythonN to be on the same node.
+
+After doing so, it is possible to launch the various containers of the components. From the respective directories:
+
     docker run -i -v $(pwd)/src/clientN:/mnt --network="host" --name="clientN" -e PORT="555N" -e CLIENTS="Number of clients" client-image
     docker run -i -v $(pwd)/src/clientN:/mnt --network="host" --name="client-pythonN" -e PORT="555N" -e CLIENTS="Number of clients" client-python-image
 
