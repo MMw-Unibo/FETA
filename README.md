@@ -24,7 +24,7 @@ From the respective directory:
 
 Modify the code in each clientN (main.rs) to connect to the Tangle, IPFS, and AS.
 - In **lib::create_builder()** *[line 30]*, insert the IP and port of a Tangle node.
-- In **TcpStream::connect()** *[line 81]*, insert the IP and port of the Authorization Server.
+- In **TcpStream::connect()** *[line 81]*, insert the IP and port of the Authorization Service.
 - In **IpfsClient::from_str()** *[line 191]*, insert the IP and port of a node in the IPFS cluster.
   
 **Please note:**
