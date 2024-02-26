@@ -22,10 +22,16 @@ From the respective directory:
 **Number of clients** refers to the total count of clients.</br>
 **N** represents the i-th client.
 
-Modify the code in each clientN (main.rs) to connect to the Tangle, IPFS, and AS.
+Modify the code in each clientN (main.rs abd lib.rs) to connect to the Tangle, IPFS, and AS.
+In **main.rs**:
 - In **lib::create_builder()** *[line 30]*, insert the IP and port of a Tangle node.
 - In **TcpStream::connect()** *[line 81]*, insert the IP and port of the Authorization Service.
 - In **IpfsClient::from_str()** *[line 191]*, insert the IP and port of a node in the IPFS cluster.
+
+In **lib.rs**:
+- In **create_client_iota()** *[line 185 and line 209]*, insert the IP and port of a Tangle node.
+- In **create_client_identity()** *[line 211]*, insert the IP and port of a Tangle node.
+
   
 **Please note:**
 Although each component can be deployed on different nodes, it is necessary for clientN and the respective client-pythonN to be on the same node.
