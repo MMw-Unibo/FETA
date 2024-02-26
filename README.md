@@ -22,7 +22,7 @@ From the respective directory:
 **Number of clients** refers to the total count of clients.</br>
 **N** represents the i-th client.
 
-Modify the code in each clientN (main.rs abd lib.rs) to connect to the Tangle, IPFS, and AS.
+Modify the code in each clientN (main.rs and lib.rs) to connect to the Tangle, IPFS, and AS.
 In **main.rs**:
 - In **lib::create_builder()** *[line 30]*, insert the IP and port of a Tangle node.
 - In **TcpStream::connect()** *[line 81]*, insert the IP and port of the Authorization Service.
@@ -31,6 +31,13 @@ In **main.rs**:
 In **lib.rs**:
 - In **create_client_iota()** *[line 185 and line 209]*, insert the IP and port of a Tangle node.
 - In **create_client_identity()** *[line 211]*, insert the IP and port of a Tangle node.
+
+Modify the code in the Authorization Service (main.rs and lib.rs) to connect to the Tangle.
+In **main.rs**:
+- In **lib::create_builder()** *[line 124]*, insert the IP and port of a Tangle node.
+
+In **lib.rs**:
+- In **create_client()** *[line 143]*, insert the IP and port of a Tangle node.
 
   
 **Please note:**
